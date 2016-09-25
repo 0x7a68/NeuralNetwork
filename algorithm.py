@@ -19,8 +19,8 @@ def derive_sig(y):
     return y * (1 - y)
 
 
-def random(row, col):
-    return Matrix([[rd.uniform(-1, 1) for c in range(col)] for r in range(row)])
+def random(row, col, lb=-1, ub=1):
+    return Matrix([[rd.uniform(lb, ub) for c in range(col)] for r in range(row)])
 
 
 def sin(x):
