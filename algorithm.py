@@ -27,6 +27,19 @@ def sin(x):
     return Matrix([[math.sin(x[row][col]) for col in range(x.shape[1])] for row in range(x.shape[0])])
 
 
+def avg(arr):
+    return sum(arr) / len(arr)
+
+
+def variance(arr):
+    average = avg(arr)
+    return (sum(map(lambda x: (x - average) ** 2, arr))) / len(arr)
+
+
+def normalize(arr):
+    return list(map(lambda x: (x - avg(arr)) / variance(arr), arr))
+
+
 class Matrix(object):
     def __init__(self, matrix: object) -> object:
         if not isinstance(matrix, list):
